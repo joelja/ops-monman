@@ -138,6 +138,7 @@
         </t>
       </section>
       <section title="Integrity  and availablity">
+        
       </section>
       <section title="Managability Consierations">
       </section>
@@ -149,7 +150,10 @@
     <section title="Protocol interactions with PM and Security Considerations">
       <section title="IPFIX and flow monitoring generall and associated security considerations">
         <t>
-        Contratary to some popularized expectations the migration of applications towards a general prefence towards port 80 and 443 and a form of transport has not rendered ipflow export less useful for  ASPs or ISPs looking to monitor their traffic for usage patterns, performance, growth protection or abuse detection.
+        Contratary to some popularized expectations, the migration of applications towards a general prefence towards port 80 and 443 and as has not rendered ipflow export less useful for  ASPs or ISPs looking to monitor their traffic for usage patterns, performance, growth protection or abuse detection. Source and Destinations, connection establishment are all present. from the vantage-point of an application provider the applications tend to be well understood, so sampled ipfix even with limited metadata (such as ingress por and router) can reveal abuntdant information about how customers reach and use a service, when it is being attacked and so on.
+        </t>
+        <t>
+        Likewise while, at first glance a internet service providers' flow export might appear t o a be a poorly differentiated sample flows from their customers to their other costumers and peers, the concentration of applications under the ruberic of a few thousand realtively large and well understood application providers makes the nature of many such flows fairly straight forward to chracterize.
         </t>
       </section> 
 
