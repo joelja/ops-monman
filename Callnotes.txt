@@ -1,0 +1,46 @@
+Call notes
+On the the subject of network monitoring and management in a hostile world
+
+pervasive monitoring
+
+operating networking
+
+     carrying around  information that is necessary not moreso
+
+The ietf giving a shit about monitoring management and operations
+
+pervasive monitoring is an attack
+
+     not just on end users and their data
+
+     network operators and application service providers are also targets
+
+     the viability of many businesses is subverted by the exfiltration of information (security threats)
+
+     at the same time  operators, especially those running enough  need to be able to monitor classify and manage data traversing their endpoints or landing on their networks
+
+     could management/monitoring work previously done in the IETF be done today?
+
+          netflow / ipfix
+
+          protocol work (1588, dhcp, IPv6 ND)
+
+          mac addresses as identity / key value
+
+          information leakage on the wire (routing protocols) data collection protocols
+
+          security review blinders
+
+               value of the data to an attacker
+
+               whether it should collected at all
+
+                    whether it can be collected some other way or is already exposed
+
+               whether it’s pii or not
+
+                    data sanitation
+
+waist in the hourglass moving.
+
+     weeding out unnecessary information
