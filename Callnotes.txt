@@ -76,7 +76,7 @@ My views:
 
     - https://datatracker.ietf.org/doc/rfc7258/ballot/#benoit-claise
 
-
+--------
 
 
 reflexive attempt to hide all information - little 
@@ -93,5 +93,44 @@ use cases for existance of DPI.
 
 varying difference  of  definition of dpi
 
+-----------
 
 
+
+could management/monitoring work previously done in the IETF be done today?
+    Syslog
+    AAA
+    VoIP CDR
+
+We have security guidelines for MIB modules and YANG data models, where we highlight the sensitive information.
+    https://trac.tools.ietf.org/area/ops/trac/wiki/mib-security
+    https://trac.tools.ietf.org/area/ops/trac/wiki/yang-security-guidelines
+However, it seems that privacy wants to impose stricter and stricter rules
+
+On one side, we have privacy for end user. There is witch hunt for every privacy aspects.
+On the other side, we have:
+    operational aspects
+    regulatory rules around data retention that demand CDR. RFC2804
+
+PII for the operator, regarding their paying customers is perfectly fine.
+
+We might have to standardize ToR:
+    Difficult to differentiate between service and protocol
+    Opportunistic tunneling consideration, like 6to4 or teredo
+    ... 
+
+One important aspect: https://tools.ietf.org/html/draft-mm-wg-effect-encrypt-03
+    I haven't read it yet
+
+Deborah: "Operators are not evil"
+
+My views:
+
+    - If for sacrosanct quest of privacy at all costs, I have no way to manage networks, I will have a serious problem with the IESG.
+    From time to time, I will ask this question to the IESG: if we would start the IPFIX effort at the IETF now, would it be blocked because of RFC7528? If the answer is yes, and there are no alternatives, I would have a serious problem with the IESG.
+
+    - https://datatracker.ietf.org/doc/rfc7258/ballot/#benoit-claise
+
+Private email from Mirja:
+
+    Btw. I very much agree to your comment/question on which part of work would not have happen, would we have applied this earlier. I think it’s a bad attribute, not to say misuse, to use this security/privacy card to stop work in its infancy instead of trying to improve the work that is on-going… (I might bring this up later depending on where this goes.)
