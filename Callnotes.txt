@@ -84,3 +84,14 @@ reflexive attempt to hide all information - little
 data retention laws 
 
 tor - for example hard
+
+witch hunt to hide every single user - userinterface issues around traffic bound for different destinations - 
+
+should not be defined as a threat model for the existance of ops
+
+use cases for existance of DPI.
+
+varying difference  of  definition of dpi
+
+
+
