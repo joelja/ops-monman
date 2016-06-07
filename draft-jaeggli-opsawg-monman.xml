@@ -81,6 +81,22 @@
       </address>
     </author>
 
+    <author fullname="Benoit Claise" surname="Claise">
+      <organization>Cisco Systems, Inc.</organization>
+      <address>
+        <postal>
+          <street>
+            De Kleetlaan 6a b1
+          </street>
+          <city>Diegem</city>
+          <code>1803</code>
+          <country>BE</country>
+        </postal>
+
+    <email>bclaise@cisco.com</email>
+      </address>
+    </author>
+
     <date month="May" year="2016" />
 
     <!-- If the month and year are both specified and are the current ones, xml2rfc will fill 
