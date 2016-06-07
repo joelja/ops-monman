@@ -39,7 +39,7 @@
 <?rfc subcompact="no" ?>
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="info" docName="draft-jaeggli-opsawg-monman" ipr="full3978">
+<rfc category="info" docName="draft-jaeggli-opsawg-monman" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -57,7 +57,7 @@
 
     <!-- Another author who claims to be an editor -->
 
-    <author fullname="Joel Jaeggli" initials="Joel Jaeggli" role="author" surname="Jaeggli">
+    <author fullname="Joel Jaeggli" surname="Jaeggli">
       <organization>Fastly</organization>
 
       <address>
@@ -126,22 +126,25 @@
     </section>
 
     <section title="Background">
-    <t>So long as IP netorks have existed, it has been necessary to carry information about topology (routing), manage the various network elements, facilitate diagnostics, and carry actual user traffic. For only a slightly shorter period of time, IP networks have been under attack, variously due to threats of availability, autheticity and access, integreity, and capture/reuse/replability</t>
-
+    <t>
+      So long as IP netorks have existed, it has been necessary to carry information about topology (routing), manage the various network elements, facilitate diagnostics, and carry actual user traffic. For only a slightly shorter period of time, IP networks have been under attack, variously due to threats of availability, autheticity and access, integreity, and capture/reuse/replability.</t>
+</section>
       <section title="Pervasive Monitoring">
         <t>The revelations present  the Edward Snowden Whistle Blowing case were a capstone event in the long-standing efforts by state and non-state actors to peer into all aspects of internet communications as an extension of state control, law enforcement and miltary capabilites. the consequence of the developmnet of such capabilities is to subvert the integretigty of persional communitie</t> 
         
         <t>
-        <list hangIndent="10" style="empty"><t>
+        <list hangIndent="10" style="empty">
+          <t>
         IETF standards already provide mechanisms to protect Internet communications and there are guidelines  <xref
-        target="RFC3552">RFC 3552</xref> for applying these in protocol design.  But those standards generally do not address PM, the confidentiality of protocol metadata, countering traffic    analysis, or data minimisation.  In all cases, there will remain some privacy-relevant information that is inevitably disclosed by    protocols.  As technology advances, techniques that were once only available to extremely well-funded actors become more widely    accessible.  Mitigating PM is therefore a protection against a wide range of similar attacks.   <xref
-        target="RFC7258">RFC 7258</xref></t></list>
+        target="RFC3552">RFC 3552</xref> for applying these in protocol design.  But those standards generally do not address PM, the confidentiality of protocol metadata, countering traffic    analysis, or data minimisation.  In all cases, there will remain some privacy-relevant information that is inevitably disclosed by    protocols.  As technology advances, techniques that were once only available to extremely well-funded actors become more widely    accessible.  Mitigating PM is therefore a protection against a wide range of similar attacks.   <xref target="RFC7258">RFC 7258</xref></t>
+      </list>
         </t>
 
         <t>
         The recomendations in RFC 7258 for working on mitigation purposely avoid targeting network monitoring and management.
         </t>
 
+        <t>
         <list hangIndent="10" style="empty">
           <t>
              While PM is an attack, other forms of monitoring that might fit the
@@ -155,6 +158,7 @@
    this tension needs careful consideration in protocol design.
           </t>
         </list>
+      </t>
       </section>
       <section title="Integrity  and availablity">
         
@@ -171,9 +175,8 @@
 
           <t>it should be recognized from the outset that it is necessary for management systems to be exposed to and collect information necessary to their opperation, which may include host or user specific unique identifiers, credentials for mutual authetication, the state andconfiguration of devices and so on.</t>
         </section>
-      </section>
+
       <section title="Security Considerations">
-      </section>
       <t>the collection of data which is necessarily PII is part of operating  a service for a customer, and protecting services and customers from abuse.</t>
     </section>
 
@@ -188,6 +191,7 @@
       </section> 
 
     </section>
+</section>
 
     <section anchor="simple_list" title="Simple List">
       <t>List styles: 'empty', 'symbols', 'letters', 'numbers', 'hanging',
@@ -439,14 +443,24 @@ main(int argc, char *argv[])
 
             <reference anchor="MIB-SECURITY"
                  target="https://trac.tools.ietf.org/area/ops/trac/wiki/mib-security">
+                 <front>
+                  <title>MIB Security</title>
+                  <author><organization>various</organization></author>
+                  <date year="2016" />
+                 </front>
                </reference>
 
             <reference anchor="YANG-SECURITY"
                  target="https://trac.tools.ietf.org/area/ops/trac/wiki/yang-security-guidelines">
+                 <front>
+                  <title>Yang security guidlines</title>
+                  <author><organization>various</organization></author>
+                  <date year="2016" />
+                 </front>
                </reference>
 
       &RFC7258;
-      
+
       &RFC2629;
 
       &RFC3552;
