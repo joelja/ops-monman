@@ -113,11 +113,11 @@
   <middle>
     <section title="Introduction">
       <t>
-      In order to understand the environmnent network managment and measurement work in the IETF is developed in it is important to have an understanding of the pressures on and preferences of the IETF community. It is also important to look at the historical milestones in the history of manangement and measurement protocol work and network instrumentation generally. Finally with that in mind we can inform the problems that future work will face along with places where points of contention are we believe evasive to consensus.
+      In order to understand the environmnent network managment and measurement work in the IETF is developed in it is important to have an understanding of the pressures on and preferences of the IETF community. It is also important to look at the historical milestones in the history of manangement and measurement protocol work and network instrumentation generally. Finally with that in mind we can describe the problems that future work will face along with places where points of contention are we believe evasive to consensus.
       </t>
 
       <t>
-      The authors, began this work by asking if monitoring and measrurement work previously chartered in the IETF (example IPFIX or previously Netflow) could be chartered today after RFC 7258  (Pervasive Monitoring Is an Attack). the answer is probably yes but the questions is insufficiently nuannced. Future work on the DNS, P2P networking, the HTTP protocol as well as IPv4/IPv6 and transport evolution may contribute to decreased surface area for pervasive monitoring, but if it also contributes to a decline in the managability of networks and services or exposes opertors to new forms of  attack those are also considerations we should be mindful off. 
+      The authors, began this work by asking if monitoring and measrurement work previously chartered in the IETF (example IPFIX, or previously Netflow, AAA,  Syslog, or VOIP CDR) could be chartered today after RFC 7258  (Pervasive Monitoring Is an Attack). The answer is probably yes but the questions is insufficiently nuanced. Future work informed by RFC 7285 on the on those previously mentioned areas as well as DNS, P2P networking, the HTTP protocol and lower layer IPv4/IPv6 and transport evolution may contribute to decreased surface area for pervasive monitoring, but if it also contributes to a decline in the managability of networks and services or exposes opertors to new forms of  attack those are also considerations we should be mindful off. 
       </t>
 
     </section>
@@ -140,11 +140,24 @@
       <section title="Integrity  and availablity">
         
       </section>
-      <section title="Managability Consierations">
+      <section title="Managability Considerations">
+        <section title="MIBs and Data-models">
+          <t>
+          We have security considerations for MIB modules as well as yang data models where we highlight what may be considered sensitive information as well as handling recomendations.</t>
+          
+              https://trac.tools.ietf.org/area/ops/trac/wiki/mib-security
+              
+              https://trac.tools.ietf.org/area/ops/trac/wiki/yang-security-guidelines
+
+           <t>However it seems that review with an eye towards privicy considerations seems to want over time to impose to impose strictered and stricter considerations on their usage. 
+          </t>
+
+          <t>it should be recognized from the outset that it is necessary for management systems to be exposed to and collect information necessary to their opperation, which may include host or user specific unique identifiers, credentials for mutual authetication, the state andconfiguration of devices and so on.</t>
+        </section>
       </section>
       <section title="Security Considerations">
       </section>
-
+      <t>the collection of data which is necessarily PII is part of operating  a service for a customer, and protecting services and customers from abuse.</t>
     </section>
 
     <section title="Protocol interactions with PM and Security Considerations">
