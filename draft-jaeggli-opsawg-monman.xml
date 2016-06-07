@@ -10,6 +10,9 @@
 <!ENTITY RFC2629 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2629.xml">
 <!ENTITY RFC3552 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3552.xml">
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
+<!ENTITY RFC7258 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7258.xml">
+<!ENTITY RFC3552 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3552.xml">
+
 ]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <!-- used by XSLT processors -->
@@ -130,12 +133,28 @@
         
         <t>
         <list hangIndent="10" style="empty"><t>
-        IETF standards already provide mechanisms to protect Internet communications and there are guidelines [RFC3552] for applying these in protocol design.  But those standards generally do not address PM, the confidentiality of protocol metadata, countering traffic    analysis, or data minimisation.  In all cases, there will remain some privacy-relevant information that is inevitably disclosed by    protocols.  As technology advances, techniques that were once only available to extremely well-funded actors become more widely    accessible.  Mitigating PM is therefore a protection against a wide range of similar attacks.  (RFC 7258 2)</t></list>
+        IETF standards already provide mechanisms to protect Internet communications and there are guidelines  <xref
+        target="RFC3552">RFC 3552</xref> for applying these in protocol design.  But those standards generally do not address PM, the confidentiality of protocol metadata, countering traffic    analysis, or data minimisation.  In all cases, there will remain some privacy-relevant information that is inevitably disclosed by    protocols.  As technology advances, techniques that were once only available to extremely well-funded actors become more widely    accessible.  Mitigating PM is therefore a protection against a wide range of similar attacks.   <xref
+        target="RFC7258">RFC 7258</xref></t></list>
         </t>
 
         <t>
-        While the recomendations in RFC 7258 for working on mitigation do not speficiatally target network monitoring and managment
+        The recomendations in RFC 7258 for working on mitigation purposely avoid targeting network monitoring and management.
         </t>
+
+        <list hangIndent="10" style="empty">
+          <t>
+             While PM is an attack, other forms of monitoring that might fit the
+   definition of PM can be beneficial and not part of any attack, e.g.,
+   network management functions monitor packets or flows and anti-spam
+   mechanisms need to see mail message content.  Some monitoring can
+   even be part of the mitigation for PM, for example, certificate
+   transparency [RFC6962] involves monitoring Public Key Infrastructure
+   in ways that could detect some PM attack techniques.  However, there
+   is clear potential for monitoring mechanisms to be abused for PM, so
+   this tension needs careful consideration in protocol design.
+          </t>
+        </list>
       </section>
       <section title="Integrity  and availablity">
         
@@ -143,11 +162,9 @@
       <section title="Managability Considerations">
         <section title="MIBs and Data-models">
           <t>
-          We have security considerations for MIB modules as well as yang data models where we highlight what may be considered sensitive information as well as handling recomendations.</t>
-          
-              https://trac.tools.ietf.org/area/ops/trac/wiki/mib-security
-              
-              https://trac.tools.ietf.org/area/ops/trac/wiki/yang-security-guidelines
+          We have security considerations for <xref
+        target="MIB-SECURITY">MIB module security</xref> as well as <xref
+        target="YANG-SECURITY">Yang data models</xref> where we highlight what may be considered sensitive information as well as handling recomendations.</t>
 
            <t>However it seems that review with an eye towards privicy considerations seems to want over time to impose to impose strictered and stricter considerations on their usage. 
           </t>
@@ -420,6 +437,16 @@ main(int argc, char *argv[])
     <references title="Informative References">
       <!-- Here we use entities that we defined at the beginning. -->
 
+            <reference anchor="MIB-SECURITY"
+                 target="https://trac.tools.ietf.org/area/ops/trac/wiki/mib-security">
+               </reference>
+
+            <reference anchor="YANG-SECURITY"
+                 target="https://trac.tools.ietf.org/area/ops/trac/wiki/yang-security-guidelines">
+               </reference>
+
+      &RFC7258;
+      
       &RFC2629;
 
       &RFC3552;
