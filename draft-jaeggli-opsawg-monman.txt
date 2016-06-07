@@ -1,0 +1,392 @@
+
+
+
+
+Internet Engineering Task Force                                  Jaeggli
+Internet-Draft                                                    Fastly
+Intended status: Informational                                    Claise
+Expires: November 2, 2016                            Cisco Systems, Inc.
+                                                                May 2016
+
+
+     Network Monitoring and Managmenet standards in a Hostile World
+                      draft-jaeggli-opsawg-monman
+
+Abstract
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at http://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on November 2, 2016.
+
+Copyright Notice
+
+   Copyright (c) 2016 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (http://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Simplified BSD License text as described in Section 4.e of
+   the Trust Legal Provisions and are provided without warranty as
+   described in the Simplified BSD License.
+
+
+
+
+
+
+
+
+Jaeggli & Claise        Expires November 2, 2016                [Page 1]
+
+Internet-Draft              Abbreviated Title                   May 2016
+
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+   2.  Background  . . . . . . . . . . . . . . . . . . . . . . . . .   3
+     2.1.  Pervasive Monitoring  . . . . . . . . . . . . . . . . . .   3
+     2.2.  Integrity  and availablity  . . . . . . . . . . . . . . .   4
+     2.3.  Managability Considerations . . . . . . . . . . . . . . .   4
+       2.3.1.  MIBs and Data-models  . . . . . . . . . . . . . . . .   4
+       2.3.2.  Security Considerations . . . . . . . . . . . . . . .   4
+   3.  Protocol interactions with PM and Security Considerations . .   4
+     3.1.  IPFIX and flow monitoring generall and associated
+           security considerations . . . . . . . . . . . . . . . . .   4
+   4.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   5
+   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   5
+   6.  Security Considerations . . . . . . . . . . . . . . . . . . .   5
+   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   5
+     7.1.  Normative References  . . . . . . . . . . . . . . . . . .   5
+     7.2.  Informative References  . . . . . . . . . . . . . . . . .   5
+   Appendix A.  Additional Stuff . . . . . . . . . . . . . . . . . .   6
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   6
+
+1.  Introduction
+
+   In order to understand the environmnent network managment and
+   measurement work in the IETF is developed in it is important to have
+   an understanding of the pressures on and preferences of the IETF
+   community.  It is also important to look at the historical milestones
+   in the history of manangement and measurement protocol work and
+   network instrumentation generally.  Finally with that in mind we can
+   describe the problems that future work will face along with places
+   where points of contention are we believe evasive to consensus.
+
+   The authors, began this work by asking if monitoring and measrurement
+   work previously chartered in the IETF (example IPFIX, or previously
+   Netflow, AAA, Syslog, or VOIP CDR) could be chartered today after RFC
+   7258 (Pervasive Monitoring Is an Attack).  The answer is probably yes
+   but the questions is insufficiently nuanced.  Future work informed by
+   RFC 7285 on the on those previously mentioned areas as well as DNS,
+   P2P networking, the HTTP protocol and lower layer IPv4/IPv6 and
+   transport evolution may contribute to decreased surface area for
+   pervasive monitoring, but if it also contributes to a decline in the
+   managability of networks and services or exposes opertors to new
+   forms of attack those are also considerations we should be mindful
+   off.
+
+
+
+
+
+
+
+Jaeggli & Claise        Expires November 2, 2016                [Page 2]
+
+Internet-Draft              Abbreviated Title                   May 2016
+
+
+2.  Background
+
+   So long as IP netorks have existed, it has been necessary to carry
+   information about topology (routing), manage the various network
+   elements, facilitate diagnostics, and carry actual user traffic.  For
+   only a slightly shorter period of time, IP networks have been under
+   attack, variously due to threats of availability, autheticity and
+   access, integreity, and capture/reuse/replability.
+
+2.1.  Pervasive Monitoring
+
+   The revelations present the Edward Snowden Whistle Blowing case were
+   a capstone event in the long-standing efforts by state and non-state
+   actors to peer into all aspects of internet communications as an
+   extension of state control, law enforcement and miltary capabilites.
+   the consequence of the developmnet of such capabilities is to subvert
+   the integretigty of persional communitie
+
+      IETF standards already provide mechanisms to protect Internet
+      communications and there are guidelines RFC 3552 [RFC3552] for
+      applying these in protocol design.  But those standards generally
+      do not address PM, the confidentiality of protocol metadata,
+      countering traffic analysis, or data minimisation.  In all cases,
+      there will remain some privacy-relevant information that is
+      inevitably disclosed by protocols.  As technology advances,
+      techniques that were once only available to extremely well-funded
+      actors become more widely accessible.  Mitigating PM is therefore
+      a protection against a wide range of similar attacks.  RFC 7258
+      [RFC7258]
+
+   The recomendations in RFC 7258 for working on mitigation purposely
+   avoid targeting network monitoring and management.
+
+      While PM is an attack, other forms of monitoring that might fit
+      the definition of PM can be beneficial and not part of any attack,
+      e.g., network management functions monitor packets or flows and
+      anti-spam mechanisms need to see mail message content.  Some
+      monitoring can even be part of the mitigation for PM, for example,
+      certificate transparency [RFC6962] involves monitoring Public Key
+      Infrastructure in ways that could detect some PM attack
+      techniques.  However, there is clear potential for monitoring
+      mechanisms to be abused for PM, so this tension needs careful
+      consideration in protocol design.
+
+
+
+
+
+
+
+
+Jaeggli & Claise        Expires November 2, 2016                [Page 3]
+
+Internet-Draft              Abbreviated Title                   May 2016
+
+
+2.2.  Integrity and availablity
+
+2.3.  Managability Considerations
+
+2.3.1.  MIBs and Data-models
+
+   We have security considerations for MIB module security
+   [MIB-SECURITY] as well as Yang data models [YANG-SECURITY] where we
+   highlight what may be considered sensitive information as well as
+   handling recomendations.
+
+   However it seems that review with an eye towards privicy
+   considerations seems to want over time to impose to impose strictered
+   and stricter considerations on their usage.
+
+   it should be recognized from the outset that it is necessary for
+   management systems to be exposed to and collect information necessary
+   to their opperation, which may include host or user specific unique
+   identifiers, credentials for mutual authetication, the state
+   andconfiguration of devices and so on.
+
+2.3.2.  Security Considerations
+
+   the collection of data which is necessarily PII is part of operating
+   a service for a customer, and protecting services and customers from
+   abuse.
+
+3.  Protocol interactions with PM and Security Considerations
+
+3.1.  IPFIX and flow monitoring generall and associated security
+      considerations
+
+   Contratary to some popularized expectations, the migration of
+   applications towards a general prefence towards port 80 and 443 and
+   as has not rendered ipflow export less useful for ASPs or ISPs
+   looking to monitor their traffic for usage patterns, performance,
+   growth protection or abuse detection.  Source and Destinations,
+   connection establishment are all present. from the vantage-point of
+   an application provider the applications tend to be well understood,
+   so sampled ipfix even with limited metadata (such as ingress por and
+   router) can reveal abuntdant information about how customers reach
+   and use a service, when it is being attacked and so on.
+
+   Likewise while, at first glance a internet service providers' flow
+   export might appear t o a be a poorly differentiated sample flows
+   from their customers to their other costumers and peers, the
+   concentration of applications under the ruberic of a few thousand
+
+
+
+
+Jaeggli & Claise        Expires November 2, 2016                [Page 4]
+
+Internet-Draft              Abbreviated Title                   May 2016
+
+
+   realtively large and well understood application providers makes the
+   nature of many such flows fairly straight forward to chracterize.
+
+4.  Acknowledgements
+
+   This template was derived from an initial version written by Pekka
+   Savola and contributed by him to the xml2rfc project.
+
+   This document is part of a plan to make xml2rfc indispensable
+   [DOMINATION].
+
+5.  IANA Considerations
+
+   This memo includes no request to IANA.
+
+   All drafts are required to have an IANA considerations section (see
+   the update of RFC 2434 [I-D.narten-iana-considerations-rfc2434bis]
+   for a guide).  If the draft does not require IANA to do anything, the
+   section contains an explicit statement that this is the case (as
+   above).  If there are no requirements for IANA, the section will be
+   removed during conversion into an RFC by the RFC Editor.
+
+6.  Security Considerations
+
+   All drafts are required to have a security considerations section.
+   See RFC 3552 [RFC3552] for a guide.
+
+7.  References
+
+7.1.  Normative References
+
+   [min_ref]  authSurName, authInitials., "Minimal Reference", 2006.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <http://www.rfc-editor.org/info/rfc2119>.
+
+7.2.  Informative References
+
+   [DOMINATION]
+              Mad Dominators, Inc., "Ultimate Plan for Taking Over the
+              World", 1984, <http://www.example.com/dominator.html>.
+
+
+
+
+
+
+
+
+Jaeggli & Claise        Expires November 2, 2016                [Page 5]
+
+Internet-Draft              Abbreviated Title                   May 2016
+
+
+   [I-D.narten-iana-considerations-rfc2434bis]
+              Narten, T. and H. Alvestrand, "Guidelines for Writing an
+              IANA Considerations Section in RFCs", draft-narten-iana-
+              considerations-rfc2434bis-09 (work in progress), March
+              2008.
+
+   [MIB-SECURITY]
+              various, "MIB Security", 2016,
+              <https://trac.tools.ietf.org/area/ops/trac/wiki/mib-
+              security>.
+
+   [RFC2629]  Rose, M., "Writing I-Ds and RFCs using XML", RFC 2629,
+              DOI 10.17487/RFC2629, June 1999,
+              <http://www.rfc-editor.org/info/rfc2629>.
+
+   [RFC3552]  Rescorla, E. and B. Korver, "Guidelines for Writing RFC
+              Text on Security Considerations", BCP 72, RFC 3552,
+              DOI 10.17487/RFC3552, July 2003,
+              <http://www.rfc-editor.org/info/rfc3552>.
+
+   [RFC7258]  Farrell, S. and H. Tschofenig, "Pervasive Monitoring Is an
+              Attack", BCP 188, RFC 7258, DOI 10.17487/RFC7258, May
+              2014, <http://www.rfc-editor.org/info/rfc7258>.
+
+   [YANG-SECURITY]
+              various, "Yang security guidlines", 2016,
+              <https://trac.tools.ietf.org/area/ops/trac/wiki/yang-
+              security-guidelines>.
+
+Appendix A.  Additional Stuff
+
+   This becomes an Appendix.
+
+Authors' Addresses
+
+   Joel Jaeggli
+   Fastly
+   630 taylor ct
+   Mountain View, CA  94043
+   US
+
+   Email: joelja@gmail.com
+
+
+
+
+
+
+
+
+
+Jaeggli & Claise        Expires November 2, 2016                [Page 6]
+
+Internet-Draft              Abbreviated Title                   May 2016
+
+
+   Benoit Claise
+   Cisco Systems, Inc.
+   De Kleetlaan 6a b1
+   Diegem  1803
+   BE
+
+   Email: bclaise@cisco.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jaeggli & Claise        Expires November 2, 2016                [Page 7]
