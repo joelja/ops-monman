@@ -134,3 +134,26 @@ My views:
 Private email from Mirja:
 
     Btw. I very much agree to your comment/question on which part of work would not have happen, would we have applied this earlier. I think it’s a bad attribute, not to say misuse, to use this security/privacy card to stop work in its infancy instead of trying to improve the work that is on-going… (I might bring this up later depending on where this goes.)
+    
+---
+different audience for privacy 
+
+what is the outcome of having two ops ads working on this
+
+we want to manage networks
+
+the users want privacy - but also the necessary exposure
+
+our own reflection regarding the future of oops and what the ietf should do
+
+differing sets of concerns annd needs
+
+endpoint provider
+isp
+enduser
+managed service provider
+enterprise
+
+
+
+
