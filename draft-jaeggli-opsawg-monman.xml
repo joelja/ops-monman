@@ -125,7 +125,7 @@
          keywords will be used for the search engine. -->
 
     <abstract>
-      <t>Efforts in the IETF to reduce the threat to internet communications posed by pervasive monitoring are changing how we thing about monitoring and managment work. This document tries to tease appart some of the problems that are faced by operators and implmentors of monitoring and managment systems</t>
+      <t>Efforts in the IETF to reduce the threat to internet communications posed by pervasive monitoring are changing how we think about meeasurement and managment work. This document tries to tease appart some of the problems that are faced by operators and implmentors of monitoring and managment systems5</t>
     </abstract>
   </front>
 
@@ -136,17 +136,19 @@
       </t>
 
       <t>
-      The authors, began this work by asking if monitoring and measrurement work previously chartered in the IETF (example IPFIX, or previously Netflow, AAA,  Syslog, or VOIP CDR) could be chartered today after RFC 7258  (Pervasive Monitoring Is an Attack). The answer is probably yes but the questions is insufficiently nuanced. Future work informed by RFC 7285 on the on those previously mentioned areas as well as DNS, P2P networking, the HTTP protocol and lower layer IPv4/IPv6 and transport evolution may contribute to decreased surface area for pervasive monitoring, but if it also contributes to a decline in the managability of networks and services or exposes opertors to new forms of  attack those are also considerations we should be mindful off. 
+      The authors, began this work by asking if monitoring and measrurement work previously chartered in the IETF (example IPFIX, or previously Netflow, AAA,  Syslog, or VOIP CDR) could be chartered today after <xref target="RFC7258">RFC 7258</xref>  (Pervasive Monitoring Is an Attack). The answer is probably yes but the questions is insufficiently nuanced. Future work informed by RFC 7285 on the on those previously mentioned areas as well as DNS, P2P networking, the HTTP protocol and lower layer IPv4/IPv6 and transport evolution may contribute to decreased surface area for pervasive monitoring, but if it also contributes to a decline in the managability of networks and services or exposes opertors to new forms of  attack those are also considerations we should be mindful off. 
       </t>
 
     </section>
 
     <section title="Background">
-    <t>
-      So long as IP netorks have existed, it has been necessary to carry information about topology (routing), manage the various network elements, facilitate diagnostics, and carry actual user traffic. For only a slightly shorter period of time, IP networks have been under attack, variously due to threats of availability, autheticity and access, integreity, and capture/reuse/replability.</t>
+    <t>So long as IP netorks have existed, it has been necessary to carry information about topology (routing), manage the various network elements, facilitate diagnostics, and forward traffic to hosts. For only a slightly shorter period of time, IP networks have been under attack, variously due to threats against autheticity and access controls, integrity and privacy of communications, and availablity.</t>
+
+    <t(fragment)The growth of the internet as a viable platform for commerce depended in n small part on the availability of strong crypto to secure end-to-end communications,</t>
 
       <section title="Pervasive Monitoring">
-        <t>The revelations present  the Edward Snowden Whistle Blowing case were a capstone event in the long-standing efforts by state and non-state actors to peer into all aspects of internet communications as an extension of state control, law enforcement and miltary capabilites. the consequence of the developmnet of such capabilities is to subvert the integretigty of persional communitie</t> 
+      
+        <t>The revelations present in the Edward Snowden Whistle-Blowing case were a milestone event in the long-running efforts by state and non-state actors to peer into all aspects of internet communications as an extension of state control, as part of law enforcement and miltary capabilites. the consequence of the developmnet of such capabilities is to subvert the integrity of persional and commericial communication; </t> 
         
         <t>
         <list hangIndent="10" style="empty">
@@ -156,22 +158,13 @@
       </list>
         </t>
 
-        <t>
-        The recomendations in RFC 7258 for working on mitigation purposely avoid targeting network monitoring and management.
+        <t>The recomendations in RFC 7258 for working on mitigation purposely avoid targeting network monitoring and management; however in doing so they also recognize that there is potential for conflict between competing goals.
         </t>
 
         <t>
         <list hangIndent="10" style="empty">
           <t>
-             While PM is an attack, other forms of monitoring that might fit the
-   definition of PM can be beneficial and not part of any attack, e.g.,
-   network management functions monitor packets or flows and anti-spam
-   mechanisms need to see mail message content.  Some monitoring can
-   even be part of the mitigation for PM, for example, certificate
-   transparency [RFC6962] involves monitoring Public Key Infrastructure
-   in ways that could detect some PM attack techniques.  However, there
-   is clear potential for monitoring mechanisms to be abused for PM, so
-   this tension needs careful consideration in protocol design.
+             While PM is an attack, other forms of monitoring that might fit the   definition of PM can be beneficial and not part of any attack, e.g., network management functions monitor packets or flows and anti-spam mechanisms need to see mail message content.  Some monitoring can even be part of the mitigation for PM, for example, certificate transparency [RFC6962] involves monitoring Public Key Infrastructure in ways that could detect some PM attack techniques.  However, there   is clear potential for monitoring mec hanisms to be abused for PM, so this tension needs careful consideration in protocol design.
           </t>
         </list>
       </t>
