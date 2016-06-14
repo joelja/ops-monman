@@ -125,7 +125,7 @@
          keywords will be used for the search engine. -->
 
     <abstract>
-      <t></t>
+      <t>Efforts in the IETF to reduce the threat to internet communications posed by pervasive monitoring are changing how we thing about monitoring and managment work. This document tries to tease appart some of the problems that are faced by operators and implmentors of monitoring and managment systems</t>
     </abstract>
   </front>
 
